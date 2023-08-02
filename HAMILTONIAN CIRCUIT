@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<stdlib.h>
+ 
+#define V 5
+ 
+void printSolution(int path[]);
+ 
+int isSafe(int v, int graph[V][V], int path[], int pos) {
+    /* Check if this vertex is an adjacent vertex of the previously
+     added vertex. */
+    if (graph[path[pos - 1]][v] == 0)
+        return 0;
+ 
+    int i;
+    for (i = 0; i < pos; i++)
+        if (path[i] == v)
+            return 0;
+ 
+    return 1;
+}
